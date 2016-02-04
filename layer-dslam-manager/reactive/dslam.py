@@ -1,5 +1,5 @@
 from charms.reactive import when, when_not, set_state
-from charmhelpers.core.hookenv import config, status_set
+from charmhelpers.core.hookenv import config, status_set, open_port
 from charmhelpers.fetch import install_remote
 # by default, when starting with layer:basic - there are no states to signify
 # we are ready to do anything, so we're working on a blank canvas
@@ -16,5 +16,13 @@ def fetch_package():
         return
 
     download_path = install_remote(cfg['download_url'], cfg['download_sum'])
-    # really should be invoking an install step
+    install_dslam_manager(download_path)
     set_state('dlsam_manager.fetched')
+
+def install_dslam_manager(download_path):
+    #untar and install the dslam manager  + set any ACL's required 
+    # create systemd / upstart job to keep service running
+    # open any ports required to reach the dslam manager
+    open_port(80)
+    pass
+
