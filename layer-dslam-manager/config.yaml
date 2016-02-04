@@ -1,0 +1,9 @@
+options:
+  download_url:
+    type: string
+    default:
+    description: https url to download the keymile dslam manager
+  download_sum:
+    type: string
+    default:
+    description: SHA1 sum of the keymile dslam manager package

@@ -1,7 +1,0 @@
-name: keymile
-description: Deploys the keymile DSLAM
-summary: Deploys the keymile DSLAM
-author: someone@keymile.com
-provides:
-  tv:
-    interface: http
