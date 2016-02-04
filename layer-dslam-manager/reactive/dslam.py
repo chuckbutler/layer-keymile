@@ -1,6 +1,7 @@
 from charms.reactive import when, when_not, set_state
 from charmhelpers.core.hookenv import config, status_set, open_port
 from charmhelpers.fetch import install_remote
+from charmhelpers.core.templating import render
 # by default, when starting with layer:basic - there are no states to signify
 # we are ready to do anything, so we're working on a blank canvas
 
@@ -26,3 +27,9 @@ def install_dslam_manager(download_path):
     open_port(80)
     pass
 
+# This is an illustrative method to show how to pass configuration
+# from config.yaml to a jinja2 template. simply reference the keys in
+# in jinja2 format {{ download_url }} as an example
+def configure_dslam_manager():
+    # template, destination_directory, databag 
+    render('upstart', '/tmp/upstart', config())
