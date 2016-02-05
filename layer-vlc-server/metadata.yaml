@@ -1,0 +1,9 @@
+name: vlcserver
+summary: VLC Video transcoder
+description: Deploys the VLC video transcoding server
+series:
+  - trusty
+provides:
+  videostream:
+    interface: vlctranscoder
+
