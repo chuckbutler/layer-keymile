@@ -2,3 +2,9 @@ name: keymile-dslam-manager
 description: Deploys the keymile-dslam-manager
 summary: Deploys the dslman manager from KeyMile archive
 subordinate: false
+provides:
+  website:
+    interface: http
+requires:
+  vlc-stream:
+    interface: vlctranscoder

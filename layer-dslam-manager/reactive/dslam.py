@@ -33,3 +33,8 @@ def install_dslam_manager(download_path):
 def configure_dslam_manager():
     # template, destination_directory, databag 
     render('upstart', '/tmp/upstart', config())
+
+
+@when('transcoder.connected')
+def relate_transcode(trans):
+    trans.stream_url('http://github.com')
